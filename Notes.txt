@@ -1,0 +1,36 @@
+#scaffold
+Here's what happened when we ran that #cli yarn rw g scaffold post command:
+
+Added an #SDL file to define several GraphQL queries and mutations in api/src/graphql/posts.sdl.js
+Added a services file in api/src/services/posts/posts.js that makes the Prisma Client JS calls to get data in and out of the database
+Created several pages in web/src/pages:
+EditPostPage for editing a post
+NewPostPage for creating a new post
+PostPage for showing the detail of a post
+PostsPage for listing all the posts
+Created routes for those pages in web/src/Routes.js
+Created three #cells in web/src/components:
+EditPostCell gets the post to edit in the database
+PostCell gets the post to display
+PostsCell gets all the posts
+Created four components also in web/src/components:
+NewPost displays the form for creating a new post
+Post displays a single post
+PostForm the actual form used by both the New and Edit components
+Posts displays the table of all posts
+Generator Naming Conventions
+
+You'll notice that some of the generated parts have plural names and some have singular. This convention is borrowed from Ruby on Rails which uses a more "human" naming convention: if you're dealing with multiple of something (like the list of all posts) it will be plural. If you're only dealing with a single something (like creating a new post) it will be singular. It sounds natural when speaking, too: "show me a list of all the posts" versus "I'm going to create a new post."
+
+As far as the generators are concerned:
+
+Services filenames are always plural.
+The methods in the services will be singular or plural depending on if they are expected to return multiple posts or a single post (posts vs. createPost).
+SDL filenames are plural.
+Pages that come with the scaffolds are plural or singular depending on whether they deal with many or one post. When using the page generator it will stick with whatever name you give the command.
+Layouts use the name you give them on the command line.
+Components and cells, like pages, will be plural or singular depending on context when created by the scaffold generator, otherwise they'll use the given name on the command line.
+Also note that it's the database table name part that's singular or plural, not the whole word. So it's PostsCell, not PostCells.
+
+#schema
+// api/db/schema.prisma
