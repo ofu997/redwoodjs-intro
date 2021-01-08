@@ -1,13 +1,14 @@
 datasource DS {
   // optionally set multiple providers
   // example: provider = ["sqlite", "postgresql"]
-  provider = "sqlite"
+  // provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 generator client {
   provider      = "prisma-client-js"
-  binaryTargets = "native"
+  binaryTargets = env("BINARY_TARGET")
 }
 
 // Define your own datamodels here and run `yarn redwood db save` to create
