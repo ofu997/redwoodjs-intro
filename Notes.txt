@@ -39,8 +39,10 @@ Also note that it's the database table name part that's singular or plural, not 
 schema.prisma:
   changed provider from "sqlite" to "postgresql"
   binaryTargets: "native" => env("BINARY_TARGET")
+  update: now provider = ["sqlite", "postgresql"]
 .env:
   BINARY_TARGET=native
   DATABASE_URL not set correctly but it works
+  update: DATABASE_URL currently commented out
 
 Netlify's environment variables: BINARY_TARGET and DATABASE_URL
